@@ -1,18 +1,24 @@
 package Principal;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.Scanner;
+
 public class G_Persona implements Operaciones{
 
     Persona persona = new Persona();
+    Scanner lec = new Scanner(System.in);
 
     public int ValidarEdad(String FechaN){
         try {
             int edad;
 
-            String[] feachaRrray = FechaN.split("/");
+            String[] fechaArray = FechaN.split("/");
 
-            int dia = Integer.valuesOf(feachaRrray[0]);
-            int mes = Integer.valuesOf(feachaRrray[1]) - 1;
-            int ano = Integer.valuesOf(feachaRrray[2]);
+            int dia = Integer.valueOf(fechaArray[0]);
+            int mes = Integer.valueOf(fechaArray[1]) - 1;
+            int ano = Integer.valueOf(fechaArray[2]);
 
             Date date = new Date();
             LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -72,8 +78,8 @@ public class G_Persona implements Operaciones{
             System.out.println("Digite el teléfono movil: ");
             f = lec.nextLong();
 
-            Persona(a, b, c, f);
-            setrPersona(1);
+            persona.registrarPersona(a, b, c, f);
+            persona.setrPersona(1);
         }
         catch(Exception e){
             System.out.println(e);
@@ -85,7 +91,7 @@ public class G_Persona implements Operaciones{
         try{
             System.out.println("********PRESTAMO********");
             System.out.println("\nDatos del solicitante");
-            System.out.println("C.C: " + getId_Persona());
+            System.out.println("C.C: " + persona.getId_Persona());
             System.out.println("Nombre: " + persona.getNombre() + " " + persona.getApellido());
         }
         catch(Exception e){

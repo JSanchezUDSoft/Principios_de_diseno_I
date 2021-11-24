@@ -1,10 +1,13 @@
 package Principal;
 
+import java.util.Scanner;
+
 public class Persona{
     private int     Id_Persona;
     private String  Nombre;
     private String  Apellido;
     private long    Celular;
+    private int     rPersona;
     Scanner lec = new Scanner(System.in);//Puede tener error :v
 
     public Persona() {}
@@ -71,5 +74,13 @@ public class Persona{
         catch(Exception e){
             System.out.println("Excepcion: " + e);
         }
+    }
+
+    public int getrPersona() {
+        return rPersona;
+    }
+
+    public void setrPersona(int rPersona) {
+        this.rPersona = rPersona;
     }
 }
