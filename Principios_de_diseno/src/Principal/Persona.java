@@ -1,6 +1,6 @@
 package Principal;
 
-public class Persona {
+public class Persona{
     private int     Id_Persona;
     private String  Nombre;
     private String  Apellido;
@@ -14,6 +14,13 @@ public class Persona {
         this.Nombre = nombre;
         this.Apellido = apellido;
         this.Celular = celular;
+    }
+
+    public void registrarPersona(int id_Persona, String nombre, String apellido, long celular){
+        setId_Persona(id_Persona);
+        setNombre(nombre);
+        setApellido(apellido);
+        setCelular(celular);
     }
 
     public int getId_Persona() {
