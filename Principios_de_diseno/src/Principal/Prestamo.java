@@ -9,7 +9,6 @@ public class Prestamo{
     private String[]    Fechas_Pago = new String[n];;
     private String      Fecha_Aut;
     private String      Fecha_Entrega;
-    private double      Dinero_Banco;
     private int         defDinero = 0;
     private boolean     validacion;
 
@@ -58,6 +57,7 @@ public class Prestamo{
 
     public void setValor(double valor) {
         try{
+            Banco banco = new Banco();
             double disponible;
             int op;
             while(valor<=0){
@@ -65,14 +65,14 @@ public class Prestamo{
                 System.out.println("Debe ingresar un valor mayor a 0, intente nuevamente: ");
                 valor = lec.nextDouble();
             }
-            disponible = getDinero_Banco() - valor;
+            disponible = banco.getDinero_Banco() - valor;
             if(disponible < 0){
-                System.out.println("El banco le puede prestar: " + getDinero_Banco());
+                System.out.println("El banco le puede prestar: " + banco.getDinero_Banco());
                 System.out.println("Digite 1 si acepta ese valor, otro número si prefiere volver despues: ");
                 op = lec.nextInt();
                 if(op == 1){
-                    this.Valor = getDinero_Banco();
-                    setDinero_Banco(0);
+                    this.Valor = banco.getDinero_Banco();
+                    banco.setDinero_Banco(0);
                     setDefDinero(2);
                 }
                 else{
@@ -81,8 +81,8 @@ public class Prestamo{
             }
             else{
                 this.Valor = valor;
-                setDinero_Banco(getDinero_Banco() - valor);
-                if(getDinero_Banco() == 0){
+                banco.setDinero_Banco(banco.getDinero_Banco() - valor);
+                if(banco.getDinero_Banco() == 0){
                     System.out.println("El banco se quedo sin recursos");
                     setDefDinero(2);
                 }
@@ -116,19 +116,9 @@ public class Prestamo{
     public void setFecha_Entrega(String fecha_Entrega) {
         Fecha_Entrega = fecha_Entrega;
     }
-
-    public double getDinero_Banco() {
-        return Dinero_Banco;
-    }
-
-    public void setDinero_Banco(double dinero_Banco) {
-        Dinero_Banco = dinero_Banco;
-    }
-
     public int getDefDinero() {
         return defDinero;
     }
-
     public void setDefDinero(int defDinero) {
         this.defDinero = defDinero;
     }
