@@ -10,10 +10,10 @@ public class Persona {
     }
 
     public Persona(int id_Persona, String nombre, String apellido, long celular) {
-        Id_Persona = id_Persona;
-        Nombre = nombre;
-        Apellido = apellido;
-        Celular = celular;
+        this.Id_Persona = id_Persona;
+        this.Nombre = nombre;
+        this.Apellido = apellido;
+        this.Celular = celular;
     }
 
     public int getId_Persona() {
@@ -21,7 +21,16 @@ public class Persona {
     }
 
     public void setId_Persona(int id_Persona) {
-        Id_Persona = id_Persona;
+        try{
+            while(id_Persona < 0){
+                System.out.println("NÚMERO DE DOCUMENTO NO VALIDO, INTENTE NUEVAMENTE");
+                id_Persona = lec.nextInt();
+            }
+            this.Id_Persona = id_Persona;
+        }
+        catch(Exception e){
+            System.out.println("Excepcion: " + e);
+        }
     }
 
     public String getNombre() {
@@ -45,6 +54,15 @@ public class Persona {
     }
 
     public void setCelular(long celular) {
-        Celular = celular;
+        try{
+            while(celular < 0){
+                System.out.println("TELEFONO NO VALIDO, INTENTE NUEVAMENTE");
+                celular = lec.nextInt();
+            }
+            this.Celular = celular;
+        }
+        catch(Exception e){
+            System.out.println("Excepcion: " + e);
+        }
     }
 }
