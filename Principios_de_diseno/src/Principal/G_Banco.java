@@ -12,32 +12,7 @@ public class G_Banco implements Operaciones{
         Prestamo prestamo = new Prestamo();
         Banco banco = new Banco();
         try{
-
-            double dinero;
-            Scanner lec = new Scanner(System.in);
-
-            if(prestamo.getDefDinero() == 0){
-                System.out.println("Digite cuanto dinero tiene el banco para prestar el dia de hoy: ");
-                dinero = lec.nextDouble();
-
-                while(dinero < 0){
-                    System.out.println("INGRESE UN VALOR MAYOR QUE 0: ");
-                    dinero = lec.nextDouble();
-                }
-
-                if(dinero == 0){
-                    System.out.println("El banco no tiene dinero para prestar, vuelva mas tarde");
-                    prestamo.setDefDinero(2);
-                }
-
-                else{
-                    banco.setDinero_Banco(dinero);
-                    prestamo.setDefDinero(1);
-                }
-            }
-
-            else{
-
+                Scanner lec = new Scanner(System.in);
                 int op;
                 String fechaN;
 
@@ -84,7 +59,7 @@ public class G_Banco implements Operaciones{
                 else{
 
                 }
-            }
+
         }
         catch(InputMismatchException e){
             System.out.println("Ingreso un dato no valido");

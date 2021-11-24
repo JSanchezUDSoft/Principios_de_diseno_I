@@ -9,7 +9,7 @@ public class Prestamo{
     private String[]    Fechas_Pago = new String[n];;
     private String      Fecha_Aut;
     private String      Fecha_Entrega;
-    private int         defDinero = 0;
+    private int         defDinero;
     private boolean     validacion;
 
     Scanner lec = new Scanner(System.in);//Puede tener error :v
@@ -57,7 +57,7 @@ public class Prestamo{
 
     public void setValor(double valor) {
         try{
-            Banco banco = new Banco();
+
             double disponible;
             int op;
             while(valor<=0){
@@ -65,6 +65,7 @@ public class Prestamo{
                 System.out.println("Debe ingresar un valor mayor a 0, intente nuevamente: ");
                 valor = lec.nextDouble();
             }
+            Banco banco = new Banco();
             disponible = banco.getDinero_Banco() - valor;
             if(disponible < 0){
                 System.out.println("El banco le puede prestar: " + banco.getDinero_Banco());

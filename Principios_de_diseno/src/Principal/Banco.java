@@ -2,7 +2,7 @@ package Principal;
 
 public class Banco {
 
-private double Dinero_Banco;
+private static double Dinero_Banco;
 
     public Banco() {
     }
@@ -18,4 +18,6 @@ private double Dinero_Banco;
     public void setDinero_Banco(double dinero_Banco) {
         Dinero_Banco = dinero_Banco;
     }
+
+
 }
