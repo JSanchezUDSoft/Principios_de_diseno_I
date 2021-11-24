@@ -5,9 +5,9 @@ public class Persona {
     private String Nombre;
     private String Apellido;
     private long Celular;
+    Scanner lec = new Scanner(System.in);//Puede tener error :v
 
-    public Persona() {
-    }
+    public Persona() {}
 
     public Persona(int id_Persona, String nombre, String apellido, long celular) {
         this.Id_Persona = id_Persona;
