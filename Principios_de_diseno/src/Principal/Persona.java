@@ -1,10 +1,10 @@
 package Principal;
 
 public class Persona {
-    private int Id_Persona;
-    private String Nombre;
-    private String Apellido;
-    private long Celular;
+    private int     Id_Persona;
+    private String  Nombre;
+    private String  Apellido;
+    private long    Celular;
     Scanner lec = new Scanner(System.in);//Puede tener error :v
 
     public Persona() {}
