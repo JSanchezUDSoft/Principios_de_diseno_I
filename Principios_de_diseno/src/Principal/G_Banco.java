@@ -37,6 +37,8 @@ public class G_Banco implements Operaciones{
 
                         else if(op == 0){
                             g_prestamo.capturar();
+                            G_Banco g_banco = new G_Banco();
+                            g_banco.imprimir();
                             prestamo.setValidacion(true);
                         }
 

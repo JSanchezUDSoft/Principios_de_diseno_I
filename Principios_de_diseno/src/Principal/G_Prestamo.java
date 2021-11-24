@@ -8,8 +8,9 @@ import java.util.Date;
 import java.util.InputMismatchException;
 
 public class G_Prestamo implements Operaciones{
-    private Prestamo prestamo;
 
+    private Prestamo prestamo;
+    private G_Banco g_banco;
     public void capturar(){
         try{
 
@@ -100,6 +101,8 @@ public class G_Prestamo implements Operaciones{
             }
 
             prestamo.registrarPrestamo(a, b, m, c, d);
+            g_banco = new G_Banco();
+            g_banco.imprimir();
 
         }
         catch(ArrayIndexOutOfBoundsException e){

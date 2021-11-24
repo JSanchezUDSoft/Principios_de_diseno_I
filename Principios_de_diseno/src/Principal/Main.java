@@ -36,14 +36,15 @@ public class Main {
                 g_banco.capturar();
                 g_banco.imprimir();
 
-                if(prestamo.getDefDinero() == 2){
+                /*if(prestamo.getDefDinero() == 2){
                     System.out.println("\nSe agotaron los recursos del banco, intente mañana");
                     menu = false;
                 }
                 else{
                     System.out.println("\nEjecucion finalizada correctamente");
+                    g_banco.imprimir();
                     menu = false;
-                }
+                }*/
             }
         }
         catch(Exception e){

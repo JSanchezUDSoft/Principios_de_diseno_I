@@ -8,7 +8,7 @@ public class Persona{
     private String  Apellido;
     private long    Celular;
     private int     rPersona;
-    Scanner lec = new Scanner(System.in);//Puede tener error :v
+    Scanner lec = new Scanner(System.in);
 
     public Persona() {}
 
