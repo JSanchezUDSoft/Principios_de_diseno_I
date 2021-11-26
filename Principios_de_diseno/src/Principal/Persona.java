@@ -3,11 +3,12 @@ package Principal;
 import java.util.Scanner;
 
 public class Persona{
-    private static Long     Id_Persona;
-    private static String   Nombre;
-    private static String   Apellido;
-    private static Long     Celular;
-    private static int      rPersona;
+
+    private static Long     Id_Persona;//Identifiación del cliente
+    private static String   Nombre;// Primer nombre del cliente
+    private static String   Apellido;// Primer y segundo apellido del cliente
+    private static Long     Celular;// Número celular del cliente
+    private static int      rPersona;// Validación de registro de cliente
     Scanner lec = new Scanner(System.in);
 
     public Persona() {}
@@ -19,6 +20,9 @@ public class Persona{
         this.Celular = celular;
     }
 
+    /** +-----------registrarPersona------------------------+
+     *  |Guarda los datos para registrar el cliente--------|*
+     * +--------------------------------------------------+*/
     public void registrarPersona(long id_Persona, String nombre, String apellido, long celular){
         setId_Persona(id_Persona);
         setNombre(nombre);
@@ -32,9 +36,13 @@ public class Persona{
 
     public void setId_Persona(long id_Persona) {
         try{
+            /** +------------------------------------!!!-----------------------------------------------------+
+             *  |Verifica si el numero de identidad es un número y de lo contrario lo pide nuevamente-------|*
+             * +--------------------------------------------------------------------------------------------+*/
             while(id_Persona < 0){
                 System.out.println("NÚMERO DE DOCUMENTO NO VALIDO, INTENTE NUEVAMENTE");
-                id_Persona = lec.nextInt();
+                G_Persona g_persona = new G_Persona();
+                g_persona.capturar();
             }
             this.Id_Persona = id_Persona;
         }
@@ -65,6 +73,9 @@ public class Persona{
 
     public void setCelular(long celular) {
         try{
+            /** +------------------------------------!!!-----------------------------------------------------+
+             *  |Verifica si el número de celular es un número y de lo contrario lo pide nuevamente---------|*
+             * +--------------------------------------------------------------------------------------------+*/
             while(celular < 0){
                 System.out.println("TELEFONO NO VALIDO, INTENTE NUEVAMENTE");
                 G_Persona g_persona = new G_Persona();
