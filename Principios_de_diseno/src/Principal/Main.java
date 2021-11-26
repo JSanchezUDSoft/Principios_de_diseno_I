@@ -1,6 +1,5 @@
 package Principal;
 
-import java.util.Scanner;
 
 public class Main {
 
@@ -34,9 +33,6 @@ public class Main {
                     System.out.println("\nEjecucion finalizada correctamente");
                     menu = false;
                 }
-                /*System.out.println(prestamo.getDefDinero() +"\t"+ banco.getDinero_Banco());
-                g_banco.capturar();
-                g_banco.imprimir();*/
             }
         }
         catch(Exception e){

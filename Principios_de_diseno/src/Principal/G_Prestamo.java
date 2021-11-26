@@ -1,3 +1,6 @@
+ /** +---------------------------------!!!G_Prestamo--------------------------------+
+ * |Clase que se encarga de implementar los metodos de la interfaz Operaciones -----|
+ * +-----------------------------------------------------------------------------+**/
 package Principal;
 
 import java.util.Scanner;
@@ -5,10 +8,12 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.InputMismatchException;
 
 public class G_Prestamo implements Operaciones{
-
+    /** +--------------------------------!!!capturar()----------------------------------+
+     * |Metodo que se encarga de capturar los datos solicitados correspondientes a los--|
+     * prestamos-----------------------------------------------------------------------*
+     * +------------------------------------------------------------------------------+*/
     public void capturar(){
         try{
 
@@ -19,6 +24,10 @@ public class G_Prestamo implements Operaciones{
             Scanner lec = new Scanner(System.in);
             Prestamo prestamo = new Prestamo();
 
+            /** +------------------------------------!!!---------------------------------------+
+             *  |Solicitud y almacenamiento en variables de los datos del prestamo------------|*
+             * +------------------------------------------------------------------------------+*/
+
             System.out.println("\n********DATOS DEL PRESTAMO********");
             System.out.println("\nDigite el id del prestamo: ");
             a = lec.nextInt();
@@ -26,6 +35,11 @@ public class G_Prestamo implements Operaciones{
             b = lec.nextDouble();
             System.out.println("Digite en cuantas cuotas desea pagar el prestamo: ");
             ncuotas = lec.nextInt();
+
+            /** +------------------------------------!!!---------------------------------------+
+             *  |Validación de la regla de negocio: Número de cuotas no puede ser mayor a 6----|*
+             * +------------------------------------------------------------------------------+*/
+
             while(ncuotas > 6 || ncuotas <0){
                 if(ncuotas > 6){
                     System.out.println("El número de cuotas debe ser inferior a 6, intente nuevamente");
@@ -40,16 +54,26 @@ public class G_Prestamo implements Operaciones{
                 }
             }
 
-            //Fecha actual calendar
+            /** +------------------------------------!!!---------------------------------------+
+             *  |Obtención de la fecha del servidor para posteriores validaciones--------------|*
+             * +------------------------------------------------------------------------------+*/
             Date date = new Date();
             LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             int year  = localDate.getYear();
-            Calendar c1 = Calendar.getInstance();//fecha actual
+            Calendar c1 = Calendar.getInstance();
 
             c1.set(localDate.getYear(), localDate.getMonthValue(), localDate.getDayOfMonth());
 
+            /**|Solicitud de fecha de autorizacion del prestamo|**/
+
             System.out.println("Fecha de autorización del préstamo(dd/mm/aaaa): ");//Validar primeros 20 dias del mes
             c = lec.next();
+
+            /** +------------------------------------!!!---------------------------------------+
+             *  |Validación de la regla de negocio: Prestamo debe autorizarse en los primeros--|
+             *  20 dias del mes, de lo contrario el sistema asigna la fecha mas cercana del si-|
+             *  guiente mes--------------------------------------------------------------------|
+             * +------------------------------------------------------------------------------+*/
 
             String[] f_a = c.split("/");
 
@@ -77,43 +101,54 @@ public class G_Prestamo implements Operaciones{
 
             c = c2.getTime().toString();
 
+            /** +------------------------------------!!!---------------------------------------+
+             *  |Validación regla de negocio: Fecha tentativa de entrega o desembolso del pres-|
+             *  |tamo 7 días despues de la fecha de autorización-------------------------------|*
+             * +------------------------------------------------------------------------------+*/
+
             c2.add(Calendar.DAY_OF_WEEK,7);
 
-            d = c2.getTime().toString();//fecha tentativa de entrega del prestamo
+            d = c2.getTime().toString();
 
-            Calendar c3 = Calendar.getInstance();//fecha tentativa de entrega del prestamo
+            Calendar c3 = Calendar.getInstance();
             c3.set(c2.get(Calendar.YEAR), c2.get(Calendar.MONTH), c2.get(Calendar.DAY_OF_MONTH));
 
-
+            /**Cuotas pactadas para pago del prestamo*/
             prestamo.setN(ncuotas);
 
             String[] fechasPago = new String[prestamo.getN()];
             String[] m = new String[prestamo.getN()];
 
+            /** +------------------------------------!!!---------------------------------------+
+             *  |Validación regla de negocio: Asignación de fechas de pago 30 dias calendario--|
+             *  |despues del desembolso del credito-------------------------------------------|*
+             * +------------------------------------------------------------------------------+*/
 
-
-            //Fechas de pago
             for (int i = 0; i < ncuotas; i++) {
                 c3.add(Calendar.DAY_OF_MONTH, 30);
                 m[i] = c3.getTime().toString();
             }
 
+            /** +------------------------------------!!!---------------------------------------+
+             *  |Envio de los valores capturados al metodo registrarPrestamo el cual se encarga|
+             *  |de setear los valores en los atributos correspondientes-----------------------|*
+             * +------------------------------------------------------------------------------+*/
+
             prestamo.registrarPrestamo(a, b, m, c, d);
         }
         catch(ArrayIndexOutOfBoundsException e){
             System.out.println("Ingrese la fecha en formato (dd/mm/aaaa)");
-            Prestamo prestamo = new Prestamo();
-            prestamo.setValidacion(false);
             Persona persona = new Persona();
             persona.setrPersona(2);
-            System.out.println("entre");
         }
         catch(NumberFormatException e){
             System.out.println("Ingrese un valor numerico");
-            Prestamo prestamo = new Prestamo();
-            prestamo.setValidacion(false);
         }
     }
+
+    /** +--------------------------------!!!imprimir()----------------------------------+
+     * |Metodo que se encarga de imprimir los datos del prestamo autorizado-------------|
+     * +------------------------------------------------------------------------------+*/
     public void imprimir() {
         try{
             Prestamo prestamo = new Prestamo();

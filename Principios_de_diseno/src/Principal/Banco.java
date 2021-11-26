@@ -1,5 +1,9 @@
 package Principal;
 
+/** +---------------------------------!!!Banco-------------------------------------+
+ * |Clase que se encarga de la gestion del dinero del banco------------------------|
+ * +-----------------------------------------------------------------------------+**/
+
 public class Banco {
 
 private static double Dinero_Banco;

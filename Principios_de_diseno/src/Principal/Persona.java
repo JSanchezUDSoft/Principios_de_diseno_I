@@ -1,5 +1,7 @@
 package Principal;
-
+/** +--------------------------------!!!Persona------------------------------------+
+ * |Clase que se encarga de la gestion del dinero del banco------------------------|
+ * +-----------------------------------------------------------------------------+**/
 import java.util.Scanner;
 
 public class Persona{
