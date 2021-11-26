@@ -93,6 +93,7 @@ public class G_Persona implements Operaciones{
             System.out.println("\nDatos del solicitante");
             System.out.println("C.C: " + persona.getId_Persona());
             System.out.println("Nombre: " + persona.getNombre() + " " + persona.getApellido());
+            System.out.println("Celular: " + persona.getCelular());
         }
         catch(Exception e){
             System.out.println(e);

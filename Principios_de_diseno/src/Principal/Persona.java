@@ -7,7 +7,7 @@ public class Persona{
     private static String   Nombre;
     private static String   Apellido;
     private static String   Celular;
-    private int     rPersona;
+    private static int      rPersona;
     Scanner lec = new Scanner(System.in);
 
     public Persona() {}
