@@ -101,6 +101,7 @@ public class G_Banco implements Operaciones{
                         System.out.println("El solicitante es menor de edad");
                     }
                 }
+        }
         catch(InputMismatchException e){
             System.out.println("Ingreso un dato no valido");
             prestamo.setDefDinero(3);
