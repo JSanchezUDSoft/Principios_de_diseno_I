@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class G_Persona implements Operaciones{
 
-    Persona persona = new Persona();
     Scanner lec = new Scanner(System.in);
 
     public int ValidarEdad(String FechaN){
@@ -64,6 +63,7 @@ public class G_Persona implements Operaciones{
 
     public void capturar(){
         try{
+            Persona persona = new Persona();
             int a;
             String b, c, f;
 
@@ -88,6 +88,7 @@ public class G_Persona implements Operaciones{
 
     public void imprimir(){
         try{
+            Persona persona = new Persona();
             System.out.println("********PRESTAMO********");
             System.out.println("\nDatos del solicitante");
             System.out.println("C.C: " + persona.getId_Persona());

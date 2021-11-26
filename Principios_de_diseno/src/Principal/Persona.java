@@ -3,10 +3,10 @@ package Principal;
 import java.util.Scanner;
 
 public class Persona{
-    private int     Id_Persona;
-    private String  Nombre;
-    private String  Apellido;
-    private String    Celular;
+    private static int      Id_Persona;
+    private static String   Nombre;
+    private static String   Apellido;
+    private static String   Celular;
     private int     rPersona;
     Scanner lec = new Scanner(System.in);
 

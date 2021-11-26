@@ -9,8 +9,8 @@ public class Prestamo{
     private static String[]    Fechas_Pago = new String[n];;
     private static String      Fecha_Aut;
     private static String      Fecha_Entrega;
-    private int         defDinero;
-    private boolean     validacion;
+    private static int         defDinero;
+    private static boolean     validacion;
 
     Scanner lec = new Scanner(System.in);//Puede tener error :v
 
