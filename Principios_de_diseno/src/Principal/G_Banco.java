@@ -84,14 +84,11 @@ public class G_Banco implements Operaciones{
                                 g_persona.capturar();
                                 g_prestamo.capturar();
                                 persona.setrPersona(1);
-                                prestamo.setValidacion(true);
                             } else if (op == 0) {
                                 g_prestamo.capturar();
                                 G_Banco g_banco = new G_Banco();
-                                prestamo.setValidacion(true);
                             } else {
                                 System.out.println("Opcion incorrecta");
-                                prestamo.setValidacion(false);
                             }
                         }
 
@@ -102,23 +99,15 @@ public class G_Banco implements Operaciones{
 
                     } else if (a == 0) {
                         System.out.println("El solicitante es menor de edad");
-                        prestamo.setValidacion(false);
-                    } else if (a == 2) {
-                        prestamo.setValidacion(false);
-                    } else {
-                        prestamo.setValidacion(false);
                     }
                 }
-        }
         catch(InputMismatchException e){
             System.out.println("Ingreso un dato no valido");
             prestamo.setDefDinero(3);
-            prestamo.setValidacion(false);
         }
         catch(ArrayIndexOutOfBoundsException | NumberFormatException e){
             System.out.println("Ingrese la fecha en formato (dd/mm/aaaa)");
             persona.setrPersona(2);
-            prestamo.setValidacion(false);
         }
         catch(Exception e){
             System.out.println(e);
