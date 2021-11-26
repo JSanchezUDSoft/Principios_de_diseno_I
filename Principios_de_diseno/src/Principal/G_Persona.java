@@ -64,21 +64,21 @@ public class G_Persona implements Operaciones{
     public void capturar(){
         try{
             Persona persona = new Persona();
-            int a;
-            String b, c, f;
+            long a, f;
+            String b, c;
 
             System.out.println("\nDatos del solitante del Prestamo: ");
             System.out.println("\nDigite el número de identificación del solicitante: ");
-            a = lec.nextInt();
+            a = guardar(lec.next());
             System.out.println("Digite el primer nombre: ");
             b = lec.next();
             System.out.println("Digite el primer y segundo apellido: ");
             c = lec.next();
             System.out.println("Digite el teléfono movil: ");
-            f = lec.next();
+            f = guardar(lec.next());
 
             persona.registrarPersona(a, b, c, f);
-            persona.setrPersona(1);//Esta mal
+            persona.setrPersona(1);
         }
         catch(Exception e){
             System.out.println(e);
@@ -98,5 +98,28 @@ public class G_Persona implements Operaciones{
         catch(Exception e){
             System.out.println(e);
         }
+    }
+
+    public long guardar(String str){
+        long x=0;
+        if(verificarDato(str)==true){
+            x = Long.parseLong(str);
+        }
+        else{
+            System.out.println("Dato invalido");
+            capturar();
+        }
+        return x;
+    }
+
+    public boolean verificarDato(String str){
+        boolean f = true;
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                f = false;
+                break;
+            }
+        }
+        return f;
     }
 }

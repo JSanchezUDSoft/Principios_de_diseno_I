@@ -3,34 +3,34 @@ package Principal;
 import java.util.Scanner;
 
 public class Persona{
-    private static int      Id_Persona;
+    private static Long     Id_Persona;
     private static String   Nombre;
     private static String   Apellido;
-    private static String   Celular;
+    private static Long     Celular;
     private static int      rPersona;
     Scanner lec = new Scanner(System.in);
 
     public Persona() {}
 
-    public Persona(int id_Persona, String nombre, String apellido, String celular) {
+    public Persona(long id_Persona, String nombre, String apellido, long celular) {
         this.Id_Persona = id_Persona;
         this.Nombre = nombre;
         this.Apellido = apellido;
         this.Celular = celular;
     }
 
-    public void registrarPersona(int id_Persona, String nombre, String apellido, String celular){
+    public void registrarPersona(long id_Persona, String nombre, String apellido, long celular){
         setId_Persona(id_Persona);
         setNombre(nombre);
         setApellido(apellido);
         setCelular(celular);
     }
 
-    public int getId_Persona() {
+    public long getId_Persona() {
         return Id_Persona;
     }
 
-    public void setId_Persona(int id_Persona) {
+    public void setId_Persona(long id_Persona) {
         try{
             while(id_Persona < 0){
                 System.out.println("NÚMERO DE DOCUMENTO NO VALIDO, INTENTE NUEVAMENTE");
@@ -59,15 +59,16 @@ public class Persona{
         Apellido = apellido;
     }
 
-    public String getCelular() {
+    public long getCelular() {
         return Celular;
     }
 
-    public void setCelular(String celular) {
+    public void setCelular(long celular) {
         try{
-            while(celular.length() < 0){
+            while(celular < 0){
                 System.out.println("TELEFONO NO VALIDO, INTENTE NUEVAMENTE");
-                celular = lec.next();
+                G_Persona g_persona = new G_Persona();
+                g_persona.capturar();
             }
             this.Celular = celular;
         }
