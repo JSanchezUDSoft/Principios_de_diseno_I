@@ -10,4 +10,4 @@ Descripción del proyecto: Aplicación en Java que permite realizar prestamos ba
 
 Diagrama de clases:
 
-
+![](Diagrama_Clases.png)
