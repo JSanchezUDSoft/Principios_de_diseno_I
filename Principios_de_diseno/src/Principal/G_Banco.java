@@ -3,7 +3,17 @@ package Principal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/** +----------------------------------!!!G_Banco-----------------------------------+
+ * |Clase que se encarga de implementar los metodos de la interfaz Operaciones y --|*
+ * |metodos relacionados con los datos del banco como el dinero-------------------- *
+ * +-----------------------------------------------------------------------------+**/
+
+
 public class G_Banco implements Operaciones{
+
+    /** +---------------------------!!!definirDineroBanco()-----------------------------+
+     * |Metodo que se encarga de fijar la cantidad de dinero que posee el banco-------|*
+     * +------------------------------------------------------------------------------+*/
 
     public void definirDineroBanco() {
 
@@ -31,6 +41,11 @@ public class G_Banco implements Operaciones{
         }
     }
 
+    /** +--------------------------------!!!capturar()----------------------------------+
+     * |Metodo que se encarga de capturar, validar y procesar si la persona está calif-|*
+     * |icada para realizar un prestamo------------------------------------------------ *
+     * +------------------------------------------------------------------------------+*/
+
     public void capturar() {
         G_Persona g_persona = new G_Persona();
         G_Prestamo g_prestamo = new G_Prestamo();
@@ -53,6 +68,11 @@ public class G_Banco implements Operaciones{
 
                     int a = g_persona.ValidarEdad(fechaN);
 
+                    /** +------------------------------------!!!---------------------------------------+
+                     *  |Validación de la regla de negocio: La persona no debe estar reportada en cent-|
+                     *  |rales de riesgo, de lo contrario no podrá realziar el prestamo----------------|
+                     * +------------------------------------------------------------------------------+*/
+
                     if (a == 1) {
                         System.out.println("Digite 1 si el usuario esta reportado o 2 si no lo esta: ");
                         boolean data = g_persona.validarDataCredito(lec.nextInt());
@@ -74,6 +94,11 @@ public class G_Banco implements Operaciones{
                                 prestamo.setValidacion(false);
                             }
                         }
+
+                        /** +------------------------------------!!!---------------------------------------+
+                         *  |Validación de la regla de negocio: La persona debe ser mayor de edad de lo co-|
+                         *  |ntrario no podrá realziar el prestamo-----------------------------------------|
+                         * +-----------------------------------------------------------------------------+*/
 
                     } else if (a == 0) {
                         System.out.println("El solicitante es menor de edad");
@@ -100,6 +125,12 @@ public class G_Banco implements Operaciones{
         }
     }
 
+
+    /** +--------------------------------!!!imprimir()----------------------------------+
+     * |Metodo que se encarga de imprimir datos que ya fueron capturados previamente ya *
+     * sea de persona y prestamo, o solo prestamo-------------------------------------- *
+     * +------------------------------------------------------------------------------+*/
+
     public void imprimir() {
         Persona persona = new Persona();
         Prestamo prestamo = new Prestamo();
@@ -108,7 +139,6 @@ public class G_Banco implements Operaciones{
         try{
             int op = persona.getrPersona();
 
-            //if(prestamo.getValidacion() == true){
                 if(op == 1){
                     g_persona.imprimir();
                     g_prestamo.imprimir();
@@ -118,15 +148,14 @@ public class G_Banco implements Operaciones{
                     System.out.println("Datos invalidos, intente nuevamente");
                 }
 
+                /** +------------------------------------!!!---------------------------------------+
+                 *  |Solo se imprime los datos del prestamo si el cliente no quiso sus datos ------|
+                 * +-----------------------------------------------------------------------------+*/
+
                 else{
                     System.out.println("\n********DATOS DEL PRESTAMO********");
                     g_prestamo.imprimir();
                 }
-            //}
-
-            /*else{
-                //System.out.println("Datos invalidos, intente nuevamente");
-            }*/
         }
         catch(Exception e){
             System.out.println(e);
