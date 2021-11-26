@@ -9,8 +9,6 @@ import java.util.InputMismatchException;
 
 public class G_Prestamo implements Operaciones{
 
-    private Prestamo prestamo;
-    private G_Banco g_banco;
     public void capturar(){
         try{
 
@@ -19,7 +17,7 @@ public class G_Prestamo implements Operaciones{
             String c, d;
 
             Scanner lec = new Scanner(System.in);
-            prestamo = new Prestamo();
+            Prestamo prestamo = new Prestamo();
 
             System.out.println("\n********DATOS DEL PRESTAMO********");
             System.out.println("\nDigite el id del prestamo: ");
@@ -101,24 +99,27 @@ public class G_Prestamo implements Operaciones{
             }
 
             prestamo.registrarPrestamo(a, b, m, c, d);
-            g_banco = new G_Banco();
+            G_Banco g_banco = new G_Banco();
             g_banco.imprimir();
 
         }
         catch(ArrayIndexOutOfBoundsException e){
             System.out.println("Ingrese la fecha en formato (dd/mm/aaaa)");
+            Prestamo prestamo = new Prestamo();
             prestamo.setValidacion(false);
             Persona persona = new Persona();
             persona.setrPersona(2);
         }
         catch(NumberFormatException e){
             System.out.println("Ingrese un valor numerico");
+            Prestamo prestamo = new Prestamo();
             prestamo.setValidacion(false);
 
         }
     }
     public void imprimir() {
         try{
+            Prestamo prestamo = new Prestamo();
             System.out.println("Número de prestamo: " + prestamo.getId_Prestamo());
             System.out.println("Valor: " + prestamo.getValor());
             System.out.println("Fecha de autorización del prestamo: " + prestamo.getFecha_Aut());
