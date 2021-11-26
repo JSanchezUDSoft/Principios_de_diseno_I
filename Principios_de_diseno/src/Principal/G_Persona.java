@@ -65,19 +65,21 @@ public class G_Persona implements Operaciones{
         try{
             Persona persona = new Persona();
             long a, f;
-            String b, c;
+            String b, c, d;
 
             System.out.println("\nDatos del solitante del Prestamo: ");
             System.out.println("\nDigite el número de identificación del solicitante: ");
             a = guardar(lec.next());
             System.out.println("Digite el primer nombre: ");
             b = lec.next();
-            System.out.println("Digite el primer y segundo apellido: ");
+            System.out.println("Digite el primer apellido: ");
             c = lec.next();
+            System.out.println("Digite el segundo apellido");
+            d = lec.next();
             System.out.println("Digite el teléfono movil: ");
             f = guardar(lec.next());
 
-            persona.registrarPersona(a, b, c, f);
+            persona.registrarPersona(a, b, c+d, f);
             persona.setrPersona(1);
         }
         catch(Exception e){
