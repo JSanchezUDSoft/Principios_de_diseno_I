@@ -33,6 +33,7 @@ public class Prestamo{
     }
 
     public int getId_Prestamo() {
+        System.out.println(Id_Prestamo);
         return Id_Prestamo;
     }
 
@@ -117,14 +118,16 @@ public class Prestamo{
     public void setFecha_Entrega(String fecha_Entrega) {
         Fecha_Entrega = fecha_Entrega;
     }
+
     public int getDefDinero() {
         return defDinero;
     }
+
     public void setDefDinero(int defDinero) {
         this.defDinero = defDinero;
     }
 
-    public boolean isValidacion() {
+    public boolean getValidacion() {
         return validacion;
     }
 

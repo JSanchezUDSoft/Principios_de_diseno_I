@@ -64,9 +64,8 @@ public class G_Persona implements Operaciones{
 
     public void capturar(){
         try{
-            String b, c;
             int a;
-            long f;
+            String b, c, f;
 
             System.out.println("\nDatos del solitante del Prestamo: ");
             System.out.println("\nDigite el número de identificación del solicitante: ");
@@ -76,10 +75,10 @@ public class G_Persona implements Operaciones{
             System.out.println("Digite el primer y segundo apellido: ");
             c = lec.next();
             System.out.println("Digite el teléfono movil: ");
-            f = lec.nextLong();
+            f = lec.next();
 
             persona.registrarPersona(a, b, c, f);
-            persona.setrPersona(1);
+            persona.setrPersona(1);//Esta mal
         }
         catch(Exception e){
             System.out.println(e);

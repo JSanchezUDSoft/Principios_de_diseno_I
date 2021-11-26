@@ -32,7 +32,7 @@ public class Main {
             }
 
             while(menu == true){
-                System.out.println(prestamo.getDefDinero() + banco.getDinero_Banco());
+                System.out.println(prestamo.getDefDinero() +"\t"+ banco.getDinero_Banco());
                 g_banco.capturar();
                 g_banco.imprimir();
             }

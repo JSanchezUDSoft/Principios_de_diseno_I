@@ -106,12 +106,12 @@ public class G_Prestamo implements Operaciones{
             prestamo.setValidacion(false);
             Persona persona = new Persona();
             persona.setrPersona(2);
+            System.out.println("entre");
         }
         catch(NumberFormatException e){
             System.out.println("Ingrese un valor numerico");
             Prestamo prestamo = new Prestamo();
             prestamo.setValidacion(false);
-
         }
     }
     public void imprimir() {

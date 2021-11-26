@@ -59,7 +59,7 @@ public class G_Banco implements Operaciones{
                     prestamo.setValidacion(false);
                 }
                 else{
-
+                    prestamo.setValidacion(false);
                 }
 
         }
@@ -86,7 +86,7 @@ public class G_Banco implements Operaciones{
         try{
             int op = persona.getrPersona();
 
-            //if(prestamo.isValidacion() == true){
+            if(prestamo.getValidacion() == true){
                 if(op == 1){
                     g_persona.imprimir();
                     g_prestamo.imprimir();
@@ -100,7 +100,7 @@ public class G_Banco implements Operaciones{
                     System.out.println("\n********DATOS DEL PRESTAMO********");
                     g_prestamo.imprimir();
                 }
-            //}
+            }
 
             /*else{
                 //System.out.println("Datos invalidos, intente nuevamente");

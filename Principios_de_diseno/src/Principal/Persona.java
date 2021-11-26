@@ -6,20 +6,20 @@ public class Persona{
     private int     Id_Persona;
     private String  Nombre;
     private String  Apellido;
-    private long    Celular;
+    private String    Celular;
     private int     rPersona;
     Scanner lec = new Scanner(System.in);
 
     public Persona() {}
 
-    public Persona(int id_Persona, String nombre, String apellido, long celular) {
+    public Persona(int id_Persona, String nombre, String apellido, String celular) {
         this.Id_Persona = id_Persona;
         this.Nombre = nombre;
         this.Apellido = apellido;
         this.Celular = celular;
     }
 
-    public void registrarPersona(int id_Persona, String nombre, String apellido, long celular){
+    public void registrarPersona(int id_Persona, String nombre, String apellido, String celular){
         setId_Persona(id_Persona);
         setNombre(nombre);
         setApellido(apellido);
@@ -59,15 +59,15 @@ public class Persona{
         Apellido = apellido;
     }
 
-    public long getCelular() {
+    public String getCelular() {
         return Celular;
     }
 
-    public void setCelular(long celular) {
+    public void setCelular(String celular) {
         try{
-            while(celular < 0){
+            while(celular.length() < 0){
                 System.out.println("TELEFONO NO VALIDO, INTENTE NUEVAMENTE");
-                celular = lec.nextInt();
+                celular = lec.next();
             }
             this.Celular = celular;
         }
