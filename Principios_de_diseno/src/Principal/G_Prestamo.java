@@ -99,9 +99,6 @@ public class G_Prestamo implements Operaciones{
             }
 
             prestamo.registrarPrestamo(a, b, m, c, d);
-            G_Banco g_banco = new G_Banco();
-            g_banco.imprimir();
-
         }
         catch(ArrayIndexOutOfBoundsException e){
             System.out.println("Ingrese la fecha en formato (dd/mm/aaaa)");

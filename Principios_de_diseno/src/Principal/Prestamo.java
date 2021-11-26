@@ -3,12 +3,12 @@ package Principal;
 import java.util.Scanner;
 
 public class Prestamo{
-    private int         n;
-    private int         Id_Prestamo;
-    private double      Valor;
-    private String[]    Fechas_Pago = new String[n];;
-    private String      Fecha_Aut;
-    private String      Fecha_Entrega;
+    private static int         n;
+    private static int         Id_Prestamo;
+    private static double      Valor;
+    private static String[]    Fechas_Pago = new String[n];;
+    private static String      Fecha_Aut;
+    private static String      Fecha_Entrega;
     private int         defDinero;
     private boolean     validacion;
 

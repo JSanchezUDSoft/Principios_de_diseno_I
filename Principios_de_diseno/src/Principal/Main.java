@@ -35,7 +35,6 @@ public class Main {
                 System.out.println(prestamo.getDefDinero() + banco.getDinero_Banco());
                 g_banco.capturar();
                 g_banco.imprimir();
-
             }
         }
         catch(Exception e){
